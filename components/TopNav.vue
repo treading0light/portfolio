@@ -10,7 +10,7 @@
         <div class="fixed max-w-screen-sm min-h-screen flex flex-col justify-center items-center gap-28 text-3xl text-base-content">
 
             <h3 class="-rotate-90 hover:cursor-pointer">Projects</h3>
-            <h3 class="-rotate-90 hover:cursor-pointer">About Me</h3>    
+            <h3 class="-rotate-90 hover:cursor-pointer">About Me</h3>
         </div>
 
     </div>
