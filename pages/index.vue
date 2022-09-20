@@ -2,7 +2,7 @@
   <div @scroll="handleScroll()" id="top" class="min-h-screen w-screen bg-no-repeat bg-primary flex flex-col items-center">
 
 
-      <div id="content" class="p-12 rounded-xl text-7xl text-base-content row-span-1 w-1/2 justify-self-center self-start mt-10"
+      <div id="content" class="p-12 rounded-xl text-7xl text-base-content row-span-1 w-1/2 justify-self-center lg:self-start mt-10"
        >
 
         <h1 class="text-center hover:cursor-pointer">Tony Green</h1>
@@ -12,8 +12,8 @@
       <div id="div" class="w-1/2 min-h-screen overflow-hidden"
       >
         
-        <p id="dev" class="w-full h-full py-10 text-9xl animate-bounce">
-          Some Text
+        <p id="dev" class="w-full h-full py-10 text-9xl">
+          Some Text oh oh some text
         </p>
       </div>
 
