@@ -1,7 +1,7 @@
 <template>
-  <div @scroll="handleScroll" data-theme="dark">
+  <div data-theme="dark">
 
-    <TopNav ref="nav" />
+    <GoodNav ref="nav" />
 
     <NuxtPage />
 
@@ -10,10 +10,18 @@
 </template>
 
 <script setup>
+  // nav = template ref
+  // scrollTop can pass current window scrollTop
+  // to child components
+  
   const nav = ref(null)
   const scrollTop = ref(0)
+  let scrolling = false
 
   const handleScroll = () => {
+    // determine scroll direction and call all
+    // scroll child methods from here
+
     let newScrollTop = document.documentElement.scrollTop
 
     if (newScrollTop >= scrollTop.value) {
@@ -22,15 +30,21 @@
       nav.value?.scrollUp()
     }
 
-    console.log('new', newScrollTop, 'old', scrollTop.value)
-
     scrollTop.value = newScrollTop
-    // console.log(scrollTop.value)
   }
 
   onMounted(() => {
-    document.addEventListener('scroll', handleScroll)
-    console.log(nav.value)
+    document.addEventListener('scroll', () => scrolling = true)
+
+    setInterval(() => {
+      // throttle scroll event
+
+      if (scrolling) {
+        scrolling = false
+
+        handleScroll()
+      }
+    }, 300)
   })
   
 

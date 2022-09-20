@@ -51,6 +51,6 @@
 
 <style scoped>
     #sideNav, #topNav {
-        transition: transform 0.5s ease-out;
+        transition: transform 0.5s ease;
     }
 </style>
