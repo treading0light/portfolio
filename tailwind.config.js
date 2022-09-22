@@ -5,12 +5,12 @@ module.exports = {
     extend: {
       keyframes: {
         slide: {
-          '0%': { transform: 'translateX(50%)' },
-          '100%': { transform: 'translateX(0)' }
+          '0%': { transform: 'translateX(1vw)' },
+          '100%': { transform: 'translateX(1vw)' }
         },
       },
       animation: {
-        'slide-right': 'slide 3s ease-in-out',
+        'slide-right': 'slide 3s',
       },
     },
   },

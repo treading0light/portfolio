@@ -1,5 +1,5 @@
 <template>
-    <div @scroll="toggleNav">
+    <div>
 
         <div id="topNav" class="fixed top-0 w-full flex justify-around">
             <img @click="changeClass" class="w-10 hover:cursor-pointer" src="/images/github.png">
@@ -23,8 +23,11 @@
 </template>
 
 <script setup>
+    // set up refs to recieve both nav elements
     const top = ref(null)
     const side = ref(null)
+
+    // scrollUp/scrollDown are called by parent component
 
     const scrollUp = () => {
         top.value.classList.remove('-translate-y-52')
@@ -37,11 +40,14 @@
     }
 
     defineExpose({
+        // must expose methods to be called by parent
         scrollDown,
         scrollUp
     })
 
     onMounted(() => {
+        // save both nav elements to refs
+        
         top.value = document.getElementById('topNav')
         side.value = document.getElementById('sideNav')
     })
