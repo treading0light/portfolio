@@ -10,24 +10,14 @@
 	  class="w-full text-center absolute invisible" 
 	  >{{ word }}</p>
 
-        	<!-- <div id="row1" ref="row1" class="relative gap-20 w-1/2">
-	          <p v-for="word in row1Words" :key="word" :id="word"
-	          class="absolute invisible" 
-	          >{{ word }}</p>
-	        </div> -->
+    <h1 id="head" class="absolute top-5 w-full text-center opacity-0">Developer</h1>
 
-	        <!-- <div id="row2" ref="row2" class="flex flex-nowrap justify-center gap-20 w-1/2 mt-40">
-	          <p v-for="word in row2Words" :key="word"
-	          class="" 
-	          >{{ word }}</p>
-	        </div> -->
-
-
-	        <h1 id="head" class="absolute top-5 w-full text-center opacity-0">Developer</h1>
-
-	        <p class="invisible">Make this vanish</p>
-	        <p class="invisible">Make this vanish</p>
-	        <p class="invisible">Make this vanish</p>
+    <!-- 
+			invisible elements to give parent height due to absolute siblings
+     -->
+    <p class="invisible">Make this vanish</p>
+    <p class="invisible">Make this vanish</p>
+    <p class="invisible">Make this vanish</p>
 
 
       </div>
@@ -102,6 +92,14 @@
 		}		
 	}
 
+	// 
+	// Animation Functions
+	// 
+
+	const fadeOut = (el) => {
+		el.style.opacity = 0
+	}
+
 	const slideIn = (el, index, grows) => {
 
 		// optional flag for further animation
@@ -146,13 +144,10 @@
 		}
 	}
 
-	const fadeOut = (el) => {
-		el.style.opacity = 0
-	}
-
 	// 
 	// Hooks
 	// 
+
 	onMounted(() => {
 
 		let count = 0
