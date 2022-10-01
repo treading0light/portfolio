@@ -60,122 +60,119 @@
 
 	const isEven = (i) => i % 2 == 0
 	const sleep = ms => new Promise(r => setTimeout(r, ms))
+	const offsetBottom = (el) => el.offsetTop - el.offsetHeight
+	const percent = (int, per) => (per / 100) * int
 
 	//
 	// Animation Logic
 	//
 
-	const nextWord = async (count, array, id) => {
-		console.log(count)
+	// main logic
+	const animate = async (count, array, id) => {
+
+		// animate out previous element if there is one
+		if (count != 0) {
+			const prevEl = document.getElementById(array[count - 1])
+			fadeOut(prevEl)
+			console.log(prevEl.id + ' disapears')
+			// await sleep(1000)
+		}
+
+		// get elements using count as index
+		const el = document.getElementById(array[count])
 
 		// if current el is the last in array
 		if (count >= array.length - 1) {
 
-			// get current and previous element
-			const lastCount = count - 1
-			const prevEl = document.getElementById(array[lastCount])
-			const el = document.getElementById(array[count])
-
-			// animate out prev el and animate in the next
-			fadeOut(prevEl)
-			// await sleep(1000)
-
 			// final element slides in and grows in size
-			slideIn(el, count)
+			slideIn(el, count, true) // grows=true
+			console.log('before ' + el.offsetTop)
 			await sleep(750)
 
 			el.style.fontSize = '150%'
-			// el.style.transform = 'translateY(1px)'
 
-			// end
-			clearInterval(id)
+			console.log('after ' + offsetBottom(el))
 
-		} else {
+		
 
-			// animate out previous element if there is one
-			if (count != 0) {
-				const lastCount = count - 1
-				const prevEl = document.getElementById(array[lastCount])
-				fadeOut(prevEl)
-				console.log(prevEl.id + ' disapears')
-				// await sleep(1000)
-			}
+		} else { // if not last, animate in new element
 			
-			// animate in new element
-			const el = document.getElementById(array[count])
 			slideIn(el, count)
+
 		}		
 	}
 
-	const slideIn = (el, index) => {
+	const slideIn = (el, index, grows) => {
+
+		// optional flag for further animation
+		if (grows === undefined) grows = false
 
 		// get current height of element and parent,
 		// calculate movement distance
 		const h = el.offsetHeight
-		const ph = el.parentElement.offsetHeight 
-		const distance = ph / 2 + h / 2
+		const ph = el.parentElement.offsetHeight
+		let distance = ph / 2 + h / 2
 
 		// even=animate from bottom, odd=top
 		if (isEven(index)) {
 
 			// set initial position, make visible, then move
-			// to center of parent
+			// to end position
 			console.log('even')
 			el.style.bottom = '-' + h.toString() + 'px'
 			el.style.visibility = 'visible'
+
+			// if element is to grow after slide in,
+			// different end position is needed to be center
+			if(grows == true) {
+				distance += percent(distance, 25)
+			}
+
+			// move to end position
 			el.style.transform = 'translateY(-' + distance + 'px)'
+
 		} else {
+
 			console.log('odd')
 			el.style.top = '-' + h.toString() + 'px'
 			el.style.visibility = 'visible'
+
+			if(grows === true) {
+				console.log(grows)
+				distance -= percent(distance, 25)
+			}
 			el.style.transform = 'translateY(' + distance + 'px)'
+
 		}
-	}
-
-	const slideOut = (el, index) => {
-		const h = el.offsetHeight
-		const ph = el.parentElement.offsetHeight 
-		const distance = ph / 2 + h / 2
-
-		if (isEven(index)) {
-			console.log('slide out even')
-			el.style.transform = 'translateY(-' + distance * 2 + 'px)'
-		} else {
-			console.log('slide out odd')
-			el.style.transform = 'translateY(' + distance * 2 + 'px)'
-		}
-		sleep(500)
-		el.style.visibility = 'hidden'
-	}
-
-	const final = (el, index) => {
-		slideIn(el, index)
-		sleep(500)
-		el.style.fontSize = '150%'
 	}
 
 	const fadeOut = (el) => {
 		el.style.opacity = 0
 	}
 
-	const center = (el) => {
-		let h = el.offsetHeight
-		let ph = el.parentElement.offsetHeight
-
-		return h + ph
-	}
-
-
-
+	// 
+	// Hooks
+	// 
 	onMounted(() => {
 
 		let count = 0
 
-		// id === int
-		let id = setInterval(() => {		
-			nextWord(count, row1Words, id)
-			count ++
-		}, 2000)
+		// use setInterval to loop animation
+		let id = setInterval(() => { // id === int
+
+			if (count > row1Words.length - 1)	{
+
+				// end if exhausted array
+				clearInterval(id)
+
+			} else {
+
+				// run main logic, increment count
+				animate(count, row1Words)
+				count ++
+
+			}	
+		}, 100) // time between interval in ms
 
 	})
 
