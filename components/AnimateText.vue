@@ -1,42 +1,31 @@
 <template>
-	<div class="w-1/2 flex flex-col items-center gap-20 border-x-[20px] rounded-3xl
+	<div class="w-1/2 mx-auto relative border-x-[20px] rounded-3xl overflow-hidden
 
 	text-3xl
 	md:text-5xl
 	lg:text-7xl
 	">
-				<!-- 
-				The top parent element is a target to move around and calculate size
-				from and has overflow-hidden and styled borders.
 
-				Next one down is 3x the width of parent for even space on either side.
+		<p v-for="word in row1Words" :key="word" :id="word"
+	  class="w-full text-center absolute invisible" 
+	  >{{ word }}</p>
 
-				The next two are siblings are absolute positioned on either side of parent 
-				border div, use flex nowrap to get a strait array of words.
-				
-				The h1 stays invisible until it fades in after animation
-
-				the invisible p tags are used to add height to border div
-				 -->
-
-        <div class=" w-[300%] flex flex-col">
-
-        	<div id="row1" ref="row1" class="flex flex-nowrap justify-center gap-20 w-1/2">
-	          <p v-for="word in row1Words" :key="word"
-	          class="" 
+        	<!-- <div id="row1" ref="row1" class="relative gap-20 w-1/2">
+	          <p v-for="word in row1Words" :key="word" :id="word"
+	          class="absolute invisible" 
 	          >{{ word }}</p>
-	        </div>
+	        </div> -->
 
 	        <!-- <div id="row2" ref="row2" class="flex flex-nowrap justify-center gap-20 w-1/2 mt-40">
 	          <p v-for="word in row2Words" :key="word"
 	          class="" 
 	          >{{ word }}</p>
 	        </div> -->
-	        
-        </div>
+
 
 	        <h1 id="head" class="absolute top-5 w-full text-center opacity-0">Developer</h1>
 
+	        <p class="invisible">Make this vanish</p>
 	        <p class="invisible">Make this vanish</p>
 	        <p class="invisible">Make this vanish</p>
 
@@ -45,15 +34,18 @@
 </template>
 
 <script setup>
-	const row1 = ref(null)
-	const row2 = ref(null)
+	//
+	// Initialize
+	// 
+
 	const x1 = ref('-120rem')
 	const x2 = ref('-17rem')
 
 	const row1Words = [
 		'Web Developer',
     'Database Architect',
-    'Cool Guy'
+    'Cool Guy',
+    'Developer'
 	]
 
 	const row2Words = [
@@ -62,30 +54,128 @@
     'Hard Worker'
 	]
 
-	const setRow = (div, direction) => {
-		let width = div.clientWidth
-		if (direction === 'left') {
-			div.style.marginRight = width
-			
+	//
+	// Utility Functions
+	//
+
+	const isEven = (i) => i % 2 == 0
+	const sleep = ms => new Promise(r => setTimeout(r, ms))
+
+	//
+	// Animation Logic
+	//
+
+	const nextWord = async (count, array, id) => {
+		console.log(count)
+
+		// if current el is the last in array
+		if (count >= array.length - 1) {
+
+			// get current and previous element
+			const lastCount = count - 1
+			const prevEl = document.getElementById(array[lastCount])
+			const el = document.getElementById(array[count])
+
+			// animate out prev el and animate in the next
+			fadeOut(prevEl)
+			// await sleep(1000)
+
+			// final element slides in and grows in size
+			slideIn(el, count)
+			await sleep(750)
+
+			el.style.fontSize = '150%'
+			// el.style.transform = 'translateY(1px)'
+
+			// end
+			clearInterval(id)
+
 		} else {
-			div.style.marginLeft = width
+
+			// animate out previous element if there is one
+			if (count != 0) {
+				const lastCount = count - 1
+				const prevEl = document.getElementById(array[lastCount])
+				fadeOut(prevEl)
+				console.log(prevEl.id + ' disapears')
+				// await sleep(1000)
+			}
+			
+			// animate in new element
+			const el = document.getElementById(array[count])
+			slideIn(el, count)
+		}		
+	}
+
+	const slideIn = (el, index) => {
+
+		// get current height of element and parent,
+		// calculate movement distance
+		const h = el.offsetHeight
+		const ph = el.parentElement.offsetHeight 
+		const distance = ph / 2 + h / 2
+
+		// even=animate from bottom, odd=top
+		if (isEven(index)) {
+
+			// set initial position, make visible, then move
+			// to center of parent
+			console.log('even')
+			el.style.bottom = '-' + h.toString() + 'px'
+			el.style.visibility = 'visible'
+			el.style.transform = 'translateY(-' + distance + 'px)'
+		} else {
+			console.log('odd')
+			el.style.top = '-' + h.toString() + 'px'
+			el.style.visibility = 'visible'
+			el.style.transform = 'translateY(' + distance + 'px)'
 		}
-
-		console.log(div.style.marginRight)
-		console.log(width)
-		
 	}
 
-	const moveRow = (div, direction) => {
-		let width = div.offSetWidth
+	const slideOut = (el, index) => {
+		const h = el.offsetHeight
+		const ph = el.parentElement.offsetHeight 
+		const distance = ph / 2 + h / 2
 
-		div.style.transform = 'translateX(' + width + ')'
+		if (isEven(index)) {
+			console.log('slide out even')
+			el.style.transform = 'translateY(-' + distance * 2 + 'px)'
+		} else {
+			console.log('slide out odd')
+			el.style.transform = 'translateY(' + distance * 2 + 'px)'
+		}
+		sleep(500)
+		el.style.visibility = 'hidden'
 	}
+
+	const final = (el, index) => {
+		slideIn(el, index)
+		sleep(500)
+		el.style.fontSize = '150%'
+	}
+
+	const fadeOut = (el) => {
+		el.style.opacity = 0
+	}
+
+	const center = (el) => {
+		let h = el.offsetHeight
+		let ph = el.parentElement.offsetHeight
+
+		return h + ph
+	}
+
+
 
 	onMounted(() => {
-		setRow(row1.value, 'left')
-		setRow(row2.value, 'right')
-		// row1.value.style.transform = "translateX()"
+
+		let count = 0
+
+		// id === int
+		let id = setInterval(() => {		
+			nextWord(count, row1Words, id)
+			count ++
+		}, 2000)
 
 	})
 
@@ -93,37 +183,10 @@
 
 <style scoped>
 	p {
-		transition: transform 10s ease;
+		transition: transform .5s ease-in,
+		opacity .5s ease-in,
+		font-size 1s;
+
 		white-space: nowrap;
-	}
-
-	@keyframes slide-right {
-		0% { transform: translateX(-200%); }
-		100% { transform: translateX(200%); }
-	}
-
-	@keyframes slide-left {
-		0% { transform: translateX(200%); }
-		100% { transform: translateX(-200%); }
-	}
-
-	@keyframes fade-in {
-		0% { opacity: 0; }
-		100% { opacity: 1; }
-	}
-
-	#row1 {
-		/*animation: slide-right 10s 1s forwards;*/
-		transition: transform 8s;
-	}
-
-	#row2 {
-		/*animation: slide-left 10s 1s forwards;*/
-		transition: transform 10s ease;
-	}
-
-	#head {
-		animation: fade-in 2s 9s forwards;
-		/*transition: visibility 2s ease-in;*/
 	}
 </style>
