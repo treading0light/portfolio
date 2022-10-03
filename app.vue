@@ -1,5 +1,5 @@
 <template>
-  <div data-theme="dark">
+  <div data-theme="dark" id="main">
 
     <GoodNav ref="nav" />
 
@@ -50,3 +50,14 @@
 
 
 </script>
+
+<style scoped>
+  #main {
+    background-image: url('/images/background-dark.jpg');
+    /*background: center cover no-repeat;*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>

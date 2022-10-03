@@ -1,22 +1,18 @@
 <template>
-  <div @scroll="handleScroll()" id="top" class="min-h-screen w-screen bg-no-repeat bg-primary flex flex-col items-center">
+  <div @scroll="handleScroll()" id="top" class="min-h-screen w-screen flex flex-col items-center gap-40">
 
-
-      <div id="content" class="p-12 rounded-xl text-9xl text-base-content row-span-1 w-1/2 justify-self-center lg:self-start mt-10"
-       >
-
-        <h1 class="text-center hover:cursor-pointer">Tony Green</h1>
+      <Section-1 />
+      
+      <div class="w-full h-fit text-center bg-slate-100 bg-gradient-to-b">
+        <h1>Projects</h1>
       </div>
-
-      <AnimateText />
+      <Projects />
 
   </div>
 
 </template>
 
 <script setup>
-  const blocks = ref(120)
-  // const rows = ref(null)
   const scrollPos = ref(0)
 
   const handleScroll = () => {
@@ -32,23 +28,9 @@
 </script>
 
 <style>
-  #dev {
-   background: url('/images/space-needle.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  /*background-attachment: fixed;*/
-  background-clip: text;
-  color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  }
 
   #top {
-    background-image: url('/images/circle-scatter-haikei.svg');
-    /*background: center cover no-repeat;*/
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    
   }
 
 </style>

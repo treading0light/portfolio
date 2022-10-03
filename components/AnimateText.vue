@@ -10,8 +10,6 @@
 	  class="w-full text-center absolute invisible" 
 	  >{{ word }}</p>
 
-    <h1 id="head" class="absolute top-5 w-full text-center opacity-0">Developer</h1>
-
     <!-- 
 			invisible elements to give parent height due to absolute siblings
      -->
@@ -20,7 +18,7 @@
     <p class="invisible">Make this vanish</p>
 
 
-      </div>
+  </div>
 </template>
 
 <script setup>
@@ -28,20 +26,18 @@
 	// Initialize
 	// 
 
-	const x1 = ref('-120rem')
-	const x2 = ref('-17rem')
-
 	const row1Words = [
 		'Web Developer',
     'Database Architect',
     'Cool Guy',
+    'Team Member',
+    'Creative Mind',
+    'Hard Worker',
     'Developer'
 	]
 
 	const row2Words = [
-		'Team Member',
-    'Creative Mind',
-    'Hard Worker'
+		
 	]
 
 	//
@@ -120,12 +116,6 @@
 			el.style.bottom = '-' + h.toString() + 'px'
 			el.style.visibility = 'visible'
 
-			// if element is to grow after slide in,
-			// different end position is needed to be center
-			if(grows == true) {
-				distance += percent(distance, 25)
-			}
-
 			// move to end position
 			el.style.transform = 'translateY(-' + distance + 'px)'
 
@@ -135,6 +125,8 @@
 			el.style.top = '-' + h.toString() + 'px'
 			el.style.visibility = 'visible'
 
+			// if element is to grow after slide in,
+			// different end position is needed to be center
 			if(grows === true) {
 				console.log(grows)
 				distance -= percent(distance, 25)
@@ -143,7 +135,6 @@
 
 		}
 	}
-
 	// 
 	// Hooks
 	// 
@@ -167,7 +158,7 @@
 				count ++
 
 			}	
-		}, 100) // time between interval in ms
+		}, 700) // time between interval in ms
 
 	})
 
