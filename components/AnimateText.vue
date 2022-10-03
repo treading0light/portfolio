@@ -1,9 +1,9 @@
 <template>
 	<div class="w-1/2 mx-auto relative border-x-[20px] rounded-3xl overflow-hidden
 
-	text-3xl
-	md:text-5xl
-	lg:text-7xl
+	text-xl
+	md:text-3xl
+	lg:text-5xl
 	">
 
 		<p v-for="word in row1Words" :key="word" :id="word"
@@ -34,10 +34,6 @@
     'Creative Mind',
     'Hard Worker',
     'Developer'
-	]
-
-	const row2Words = [
-		
 	]
 
 	//

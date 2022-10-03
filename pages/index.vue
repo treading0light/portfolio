@@ -2,11 +2,20 @@
   <div @scroll="handleScroll()" id="top" class="min-h-screen w-screen flex flex-col items-center gap-40">
 
       <Section-1 />
-      
-      <div class="w-full h-fit text-center bg-slate-100 bg-gradient-to-b">
-        <h1>Projects</h1>
+
+      <!-- <Projects /> -->
+
+      <div class="stack">
+        <div class="text-center border border-base-content card w-36 bg-base-100">
+          <div class="card-body">A</div>
+        </div> 
+        <div class="text-center border border-base-content card w-36 bg-base-100">
+          <div class="card-body">B</div>
+        </div> 
+        <div class="text-center border border-base-content card w-36 bg-base-100">
+          <div class="card-body">C</div>
+        </div>
       </div>
-      <Projects />
 
   </div>
 
