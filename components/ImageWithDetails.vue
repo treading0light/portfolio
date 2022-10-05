@@ -2,7 +2,7 @@
 	<div class="relative w-4/5 mt-5" @mouseover="handleHover('show')" @mouseleave="handleHover('hide')">
 			<img class="mask mask-parallelogram-3" :src="img" />
 
-			<div ref="detailBox" class="w-2/3 h-full bg-base-100 opacity-90 absolute top-0 right-1/4 rounded-xl flex flex-col p-2
+			<div ref="detailBox" class="w-2/3 h-full bg-base-100 opacity-90 absolute top-0 right-1/4 rounded-xl flex flex-col p-2 invisible
 			text-sm
 			md:text-xl
 			lg:text-2xl
