@@ -1,14 +1,22 @@
 <template>
-	<div class="w-2/3 min-h-screen relative">
+	<div id="stack" class="w-2/3 min-h-screen relative">
 
-		<div v-for="project in projects" :id="project.id" :key="project.id" class="absolute top-0 p-20" style="z-index: 5">
+		<div style="z-index: 11;" class="absolute text-xl -top-16 left-auto flex w-full justify-center gap-10">
+			<p @click="flipBack" class="btn btn-circle btn-accent">&lt</p>
+			<p @click="flipForward" class="btn btn-circle btn-accent">></p>
+		</div>
+
+		<div v-for="project in projects"
+		class="flip-card card text-center absolute p-10 bg-base-200 border-4 border-primary h-2/3 w-10/12
+		lg:card-side lg:items-center">
 			<div class="">
-				<h2 class="">{{ project.name }}</h2>
-				<p>An app designed to intelligently track a fleet's vehicle maintenance schedule</p>
+				<h2 class="text-center bold text-3xl">{{ project.name }}</h2>
+				<p>{{ project.description }}</p>
+				
 				
 			</div>
 
-			<img class="mask mask-parallelogram-3 my-10 w-2/3" src="/images/space-needle.jpg" />
+			<figure><ImageWithDetails :details="project.details" :img="project.img" /></figure>
 			
 		</div>
 		
@@ -19,39 +27,76 @@
 <script setup>
 	const visible = ref(false)
 	const details = ref(null)
-	const projects = ref(null)
+	const cards = ref(null)
+	const props = defineProps({
+		projects: Array
+	})
 
-	const projectArray = {
-		{
-			id: 1,
-			name: 'Healthy Fleet',
-			text: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
-			bgClass: "bg-primary"
-		},
+	const sleep = ms => new Promise(r => setTimeout(r, ms))
 
-		{
-			id: 2,
-			name: 'Brothers Green',
-			text: "A blog site",
-			bgClass: "bg-secondary"
+	const rePosition = (array) => {
+	
+
+		for (const el of array) {
+			const index = array.indexOf(el)
+			const top = index * 10
+			const right = 0 - top
+			console.log(el.style.top)
+
+			el.style.top = top + 'px'
+			console.log(el.style.top)
+			el.style.right = right + 'px'
+			el.style.zIndex = 10 - index
 		}
 	}
 
-	const handleHover = (command) => {
-		if (command === 'show') {
-			details.value.classList.remove('invisible')
-			console.log('mouseOn')
-		} else {
-			details.value.classList.add('invisible')
-			console.log('mouseOff')
-		}	
+	const reOrder = (array) => {
+		let endPos = array.shift()
+
+		return array.push(endPos)
+	}
+
+	const flipForward = async () => {
+		const array = cards.value
+		const backPos = array.shift()
+		// cards[0]
+		backPos.style.transform = 'translateX(150%)'
+		await sleep(500)
+
+		array.push(backPos)
+
+		rePosition(array)
+
+		backPos.style.transform = 'translateX(0)'
+	}
+
+	const flipBack = async () => {
+		const array = cards.value
+		const frontPos = array.pop()
+
+		frontPos.style.transform = 'translateX(150%)'
+		await sleep(500)
+
+		array.unshift(frontPos)
+
+		rePosition(array)
+
+		frontPos.style.transform = 'translateX(0)'
 	}
 
 	onMounted(() => {
-		projects.value = projectArray
+		// cards.value = Array.from(document.getElementById('stack').children)
+		cards.value = Array.from(document.querySelectorAll('.flip-card'))
+		console.log(cards.value)
+
+		rePosition(cards.value)
+
+		// console.log(cards)
 	})
 </script>
 
-<style>
-	
+<style scoped>
+	.flip-card {
+		transition: transform .5s;
+	}
 </style>

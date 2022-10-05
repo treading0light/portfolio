@@ -3,19 +3,7 @@
 
       <Section-1 />
 
-      <!-- <Projects /> -->
-
-      <div class="stack">
-        <div class="text-center border border-base-content card w-36 bg-base-100">
-          <div class="card-body">A</div>
-        </div> 
-        <div class="text-center border border-base-content card w-36 bg-base-100">
-          <div class="card-body">B</div>
-        </div> 
-        <div class="text-center border border-base-content card w-36 bg-base-100">
-          <div class="card-body">C</div>
-        </div>
-      </div>
+      <Projects :projects="projects" />
 
   </div>
 
@@ -23,6 +11,39 @@
 
 <script setup>
   const scrollPos = ref(0)
+
+  const projects = [
+    {
+      name: 'Healthy Fleet',
+      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
+      img: "/images/space-needle.jpg",
+      details: [
+        "PHP/Laravel",
+        "TailwindCSS",
+        "MongoDB"
+      ],
+    },
+    {
+      name: 'Healthy Fleet',
+      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
+      img: "/images/space-needle.jpg",
+      details: [
+        "PHP/Laravel",
+        "TailwindCSS",
+        "MongoDB"
+      ],
+    },
+    {
+      name: 'Healthy Fleet',
+      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
+      img: "/images/space-needle.jpg",
+      details: [
+        "PHP/Laravel",
+        "TailwindCSS",
+        "MongoDB"
+      ],
+    }
+  ]
 
   const handleScroll = () => {
     scrollPos.value = window.scrollY

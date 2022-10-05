@@ -56,7 +56,6 @@
 		if (count != 0) {
 			const prevEl = document.getElementById(array[count - 1])
 			fadeOut(prevEl)
-			console.log(prevEl.id + ' disapears')
 			// await sleep(1000)
 		}
 
@@ -68,7 +67,7 @@
 
 			// final element slides in and grows in size
 			slideIn(el, count, true) // grows=true
-			console.log('before ' + el.offsetTop)
+
 			await sleep(750)
 
 			el.style.fontSize = '150%'
@@ -108,7 +107,6 @@
 
 			// set initial position, make visible, then move
 			// to end position
-			console.log('even')
 			el.style.bottom = '-' + h.toString() + 'px'
 			el.style.visibility = 'visible'
 
@@ -117,14 +115,12 @@
 
 		} else {
 
-			console.log('odd')
 			el.style.top = '-' + h.toString() + 'px'
 			el.style.visibility = 'visible'
 
 			// if element is to grow after slide in,
 			// different end position is needed to be center
 			if(grows === true) {
-				console.log(grows)
 				distance -= percent(distance, 25)
 			}
 			el.style.transform = 'translateY(' + distance + 'px)'
