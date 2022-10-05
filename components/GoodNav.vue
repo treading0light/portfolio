@@ -12,7 +12,7 @@
         md:text-5xl md:gap-56
         ">
 
-            <h3 class="-rotate-90 hover:cursor-pointer">Projects</h3>
+            <h3 @click="scrollTo('stack')" class="-rotate-90 hover:cursor-pointer">Projects</h3>
             <h3 class="-rotate-90 hover:cursor-pointer">About Me</h3>
         </div>
 
@@ -37,6 +37,15 @@
     const scrollDown = () => {
         top.value.classList.add('-translate-y-52')
         side.value.classList.add('-translate-x-52')
+    }
+
+    const scrollTo = (id) => {
+        const pos = document.getElementById(id).offsetTop - 150
+        console.log(pos)
+        window.scroll({
+            top: pos,
+            behavior: 'smooth'
+        })
     }
 
     defineExpose({

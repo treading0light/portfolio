@@ -9,7 +9,7 @@
 		<div v-for="project in projects"
 		class="flip-card card text-center absolute p-10 bg-base-200 border-4 border-primary h-2/3 w-10/12
 		lg:card-side lg:items-center">
-			<div class="flex flex-col gap-3">
+			<div class="flex flex-col gap-3 text-sm lg:text-xl">
 				<h2 class="text-center bold text-3xl">{{ project.name }}</h2>
 				<p>{{ project.description }}</p>
 
