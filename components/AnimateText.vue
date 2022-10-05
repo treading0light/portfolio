@@ -1,5 +1,5 @@
 <template>
-	<div class="w-1/2 mx-auto relative border-x-[20px] rounded-3xl overflow-hidden
+	<div class="w-1/2 sm:mx-auto relative border-x-8 md:border-x-[20px] rounded-3xl overflow-hidden
 
 	text-xl
 	md:text-3xl

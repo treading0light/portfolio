@@ -7,7 +7,7 @@
             <img class="w-10 hover:cursor-pointer" src="/images/linkedin.png">
         </div>
 
-        <div id="sideNav" class="fixed max-w-screen-sm min-h-screen flex flex-col justify-center items-center text-base-content
+        <div id="sideNav" class="fixed w-20 min-h-screen flex flex-col justify-center items-center text-base-content whitespace-nowrap
         text-3xl gap-28
         md:text-5xl md:gap-56
         ">

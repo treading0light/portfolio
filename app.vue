@@ -59,5 +59,7 @@
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+
+    overflow-x: hidden;
   }
 </style>

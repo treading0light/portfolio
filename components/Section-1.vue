@@ -1,9 +1,10 @@
 <template>
-	<div class="w-full flex flex-col gap-10 lg:gap-20 h-screen">
-		<div id="content" class="p-12 rounded-xl text-base-content row-span-1 w-1/2 justify-self-center lg:self-start mt-14 ml-32"
+	<div class="w-full flex flex-col gap-10 lg:gap-20 h-screen items-center justify-center">
+
+		<div id="content" class="w-1/2 text-base-content text-center"
         >
 
-	        <h1 class="text-center text-3xl lg:text-5xl lg:text-6xl">Tony Green</h1>
+	        <h1 class="m-auto text-4xl md:text-6xl lg:text-8xl">Tony Green</h1>
         </div>
 
         <AnimateText />
