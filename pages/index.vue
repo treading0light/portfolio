@@ -17,6 +17,7 @@
       name: 'Healthy Fleet',
       description: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
       img: "/images/space-needle.jpg",
+      link: "https://www.healthyfleet.org",
       details: [
         "PHP/Laravel",
         "TailwindCSS",
@@ -27,6 +28,7 @@
       name: 'Healthy Fleet',
       description: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
       img: "/images/space-needle.jpg",
+      link: "https://www.healthyfleet.org",
       details: [
         "PHP/Laravel",
         "TailwindCSS",
@@ -37,6 +39,7 @@
       name: 'Healthy Fleet',
       description: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
       img: "/images/space-needle.jpg",
+      link: "https://www.healthyfleet.org",
       details: [
         "PHP/Laravel",
         "TailwindCSS",
