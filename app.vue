@@ -1,5 +1,11 @@
 <template>
   <div data-theme="dark" id="main">
+    <Head>
+      <Meta name="og:image" content="/images/og-image.PNG" />
+      <Meta name="og:image:type" content="image/PNG" />
+      <Meta name="og:image:width" content="200" />
+      <Meta name="og:image:height" content="200" />
+    </Head>
 
     <GoodNav ref="nav" />
 
