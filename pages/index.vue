@@ -16,7 +16,7 @@
     {
       name: 'Healthy Fleet',
       description: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
-      img: "/images/space-needle.jpg",
+      img: "/images/hf_logo.jpg",
       link: "https://www.healthyfleet.org",
       details: [
         "PHP/Laravel",
@@ -25,25 +25,27 @@
       ],
     },
     {
-      name: 'Healthy Fleet',
-      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
-      img: "/images/space-needle.jpg",
-      link: "https://www.healthyfleet.org",
+      name: 'The Brothers Green',
+      description: "A tech blog created by my brother and I. In it I have created code tutorials including components used here. ",
+      img: "/images/dall-e-1.png",
+      link: "https://brothers-green.vercel.app/",
       details: [
-        "PHP/Laravel",
-        "TailwindCSS",
-        "MongoDB"
+        "Nuxt 3",
+        "Content v2",
+        "TailwindCSS"
+        
       ],
     },
     {
-      name: 'Healthy Fleet',
-      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
+      name: 'Your new webapp!',
+      description: "Hire me and we will make something amazing.",
       img: "/images/space-needle.jpg",
-      link: "https://www.healthyfleet.org",
+      link: "#",
       details: [
-        "PHP/Laravel",
-        "TailwindCSS",
-        "MongoDB"
+        "Javascript",
+        "PHP",
+        "Python",
+        "Your choice!"
       ],
     }
   ]
