@@ -3,6 +3,8 @@
 
       <Section-1 />
 
+      <Section-2 />
+
       <Projects :projects="projects" />
 
   </div>
@@ -15,11 +17,12 @@
   const projects = [
     {
       name: 'Healthy Fleet',
-      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule",
-      img: "/images/hf_logo.jpg",
+      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule. Demo available.",
+      img: "/images/hf-logo-edit.png",
       link: "https://www.healthyfleet.org",
       details: [
         "PHP/Laravel",
+        "jQuery",
         "TailwindCSS",
         "MongoDB"
       ],
@@ -39,13 +42,13 @@
     {
       name: 'Your new webapp!',
       description: "Hire me and we will make something amazing.",
-      img: "/images/space-needle.jpg",
-      link: "#",
+      img: "/images/space-needle-edit.png",
+      link: "",
       details: [
         "Javascript",
         "PHP",
         "Python",
-        "Your choice!"
+        "And more!"
       ],
     }
   ]

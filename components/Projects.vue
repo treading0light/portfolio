@@ -13,7 +13,7 @@
 				<h2 class="text-center bold text-3xl">{{ project.name }}</h2>
 				<p>{{ project.description }}</p>
 
-				<div class="card-action justify-end">
+				<div v-if="project.link != '' " class="card-action justify-end">
 					<a class="btn btn-accent" :href="project.link">Visit</a>
 				</div>	
 
@@ -53,13 +53,13 @@
 		}
 	}
 
+	// re-order array of elements forward/backward
 	const flip = async (dir) => {
 		const array = cards.value
 		let el = null
 
 		if (dir === 'forward') {
 			el = array.shift()
-			console.log(el)
 			array.push(el)
 		} else {
 			el = array.pop()
@@ -76,13 +76,11 @@
 	}
 
 	onMounted(() => {
-		// cards.value = Array.from(document.getElementById('stack').children)
+		// get array of card elements
 		cards.value = Array.from(document.querySelectorAll('.flip-card'))
-		console.log(cards.value)
 
+		// run once on load to give stack initial positions
 		rePosition(cards.value)
-
-		// console.log(cards)
 	})
 </script>
 
