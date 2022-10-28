@@ -1,6 +1,6 @@
 <template>
 	<div class="w-9/12 bg-base-300 rounded-lg flex flex-col md:flex-row p-5 gap-5">
-		<img class="mask mask-circle w-32" src="images/tony.jpg">
+		<img class="mask mask-circle w-32" src="/images/tony.jpg">
 		<div class="flex flex-col w-full md:w-2/3">
 			<div id="mini-nav" class="w-full flex flex-row justify-between text-center">
 				<p class="bg-base-100 p-2 rounded-t-lg">Work life</p>
