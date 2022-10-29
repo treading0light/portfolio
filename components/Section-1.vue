@@ -4,7 +4,7 @@
 		<div id="content" class="w-1/2 text-base-content text-center"
         >
 
-	        <h1 class="m-auto text-4xl md:text-6xl lg:text-8xl">Tony Green</h1>
+	        <h1 class="m-auto text-2xl md:text-4xl lg:text-6xl">Tony Green</h1>
         </div>
 
         <AnimateText />

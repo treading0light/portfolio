@@ -1,5 +1,5 @@
 <template>
-  <div @scroll="handleScroll()" id="top" class="min-h-screen w-screen flex flex-col items-center gap-40">
+  <div @scroll="handleScroll()" id="top" class="min-h-screen w-screen flex flex-col items-center gap-64">
 
       <Section-1 />
 

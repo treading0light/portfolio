@@ -1,16 +1,23 @@
 <template>
-	<div class="w-9/12 bg-base-300 rounded-lg flex flex-col md:flex-row p-5 gap-5">
-		<img class="mask mask-circle w-32" src="/images/tony.jpg">
-		<div class="flex flex-col w-full md:w-2/3">
+	<div id="about" class="w-9/12 bg-base-300 rounded-lg border-4 border-primary">
 
-			<div class="w-full flex flex-row justify-between text-center">
-				<p v-for="obj in textOptions" @click="makeActive(obj.id)" :id="obj.id" class="about-tab p-2 rounded-t-lg hover:cursor-pointer">{{ obj.title }}</p>
-			</div>
+		<h1 class="w-full text-center text-2xl mt-10">About Me</h1>
 
-			<div class="bg-base-100 p-2 flex flex-col gap-2">
-				<p v-for="line in text">{{ line }}</p>
+		<div class="flex flex-col sm:flex-row p-5 gap-5 items-center">
+
+			<img class="mask mask-circle w-32 h-52" src="/images/tony.jpg">
+
+			<div class="flex flex-col w-full md:w-2/3">
+
+				<div class="w-full flex flex-row justify-between text-center">
+					<p v-for="obj in textOptions" @click="makeActive(obj.id)" :id="obj.id" class="about-tab p-2 rounded-t-lg hover:cursor-pointer">{{ obj.title }}</p>
+				</div>
+
+				<div class="bg-base-100 p-2 flex flex-col gap-2">
+					<p class="lg:text-xl" v-for="line in text">{{ line }}</p>
+				</div>
+				
 			</div>
-			
 		</div>
 	</div>
 </template>
@@ -36,7 +43,8 @@
 			title: "Coding life",
 			bodyArray: [
 				"I began my coding journey with 'Python Crash Course' by Eric Matthes. Once I finished the book I signed up for a web developer course where I learned Html, CSS, PHP, and Javascript.",
-				"While working through all these steps I had been building projects. From CLI games with python, to web pages with vanilla JS and PHP, to projects using frameworks like Laravel and Vue/Nuxt."
+				"While working through all these steps I had been building projects. From CLI games with python, to web pages with vanilla JS and PHP, to projects using frameworks like Laravel and Vue/Nuxt.",
+				"Today I continue to expand my coding skillset with new "
 			]
 		},
 
