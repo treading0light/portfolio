@@ -5,7 +5,7 @@
 
 		<div class="flex flex-col sm:flex-row p-5 gap-5 items-center">
 
-			<img class="mask mask-circle w-32 h-52" src="/images/tony.jpg">
+			<img class="mask mask-circle w-32 h-52 sm:self-start" src="/images/tony.jpg">
 
 			<div class="flex flex-col w-full md:w-2/3">
 

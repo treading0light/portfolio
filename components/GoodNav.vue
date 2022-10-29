@@ -1,11 +1,21 @@
 <template>
     <div>
 
-        <div id="topNav" class="fixed top-5 w-full flex justify-around pointer-events-none"
+        <div id="topNav" class="fixed top-5 w-full flex justify-center gap-40 pointer-events-none"
         style="z-index: 15;">
-            <img @click="openTab('https://github.com/treading0light')" class="w-10 pointer-events-auto hover:cursor-pointer bg-white" src="/images/github.png">
-            <img @click="openTab('https://twitter.com/tony0green')" class="w-10 pointer-events-auto hover:cursor-pointer" src="/images/twitter.png">
-            <img @click="openTab('https://www.linkedin.com/in/tony-green-b661b489/')" class="w-10 pointer-events-auto hover:cursor-pointer" src="/images/linkedin.png">
+
+            <img @click="openTab('https://github.com/treading0light')"
+             class="w-6 pointer-events-auto hover:cursor-pointer bg-white" 
+             src="/images/github.png">
+
+            <img @click="openTab('https://twitter.com/tony0green')" 
+            class="w-6 pointer-events-auto hover:cursor-pointer" 
+            src="/images/twitter.png">
+
+            <img @click="openTab('https://www.linkedin.com/in/tony-green-b661b489/')" 
+            class="w-6 pointer-events-auto hover:cursor-pointer" 
+            src="/images/linkedin.png">
+
         </div>
 
         <div id="sideNav" class="fixed w-10 sm:w-20 min-h-screen flex flex-col justify-center items-center text-base-content whitespace-nowrap

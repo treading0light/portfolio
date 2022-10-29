@@ -1,9 +1,9 @@
 <template>
 	<div class="w-1/2 sm:mx-auto relative border-x-8 md:border-x-[20px] rounded-3xl overflow-hidden
 
-	text-xl
-	md:text-3xl
-	lg:text-5xl
+	text-sm
+	md:text-xl
+	lg:text-3xl
 	">
 
 		<p v-for="word in row1Words" :key="word" :id="word"
