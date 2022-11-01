@@ -1,9 +1,9 @@
 <template>
-	<div class="w-1/2 sm:mx-auto relative border-x-8 md:border-x-[20px] rounded-3xl overflow-hidden
+	<div class="w-1/2 sm:mx-auto relative border-x-4 border-primary rounded-3xl overflow-hidden
 
-	text-sm
-	md:text-xl
-	lg:text-3xl
+	text-lg
+	md:text-2xl
+	lg:text-5xl
 	">
 
 		<p v-for="word in row1Words" :key="word" :id="word"
@@ -27,7 +27,7 @@
 	// 
 
 	const row1Words = [
-		'Web Developer',
+	'Web Developer',
     'Database Architect',
     'Cool Guy',
     'Team Member',
@@ -72,10 +72,6 @@
 
 			el.style.fontSize = '150%'
 
-			console.log('after ' + offsetBottom(el))
-
-		
-
 		} else { // if not last, animate in new element
 			
 			slideIn(el, count)
@@ -105,24 +101,20 @@
 		// even=animate from bottom, odd=top
 		if (isEven(index)) {
 
-			// set initial position, make visible, then move
-			// to end position
+			// set initial position, make visible
 			el.style.bottom = '-' + h.toString() + 'px'
 			el.style.visibility = 'visible'
 
 			// move to end position
 			el.style.transform = 'translateY(-' + distance + 'px)'
 
+
+
 		} else {
 
 			el.style.top = '-' + h.toString() + 'px'
 			el.style.visibility = 'visible'
 
-			// if element is to grow after slide in,
-			// different end position is needed to be center
-			if(grows === true) {
-				distance -= percent(distance, 25)
-			}
 			el.style.transform = 'translateY(' + distance + 'px)'
 
 		}

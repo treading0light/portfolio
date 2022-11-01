@@ -1,29 +1,30 @@
 <template>
     <div>
 
-        <div id="topNav" class="fixed top-5 w-full flex justify-center gap-40 pointer-events-none"
+        <div id="topNav" class="fixed top-5 w-full flex justify-center gap-10 sm:gap-40 pointer-events-none"
         style="z-index: 15;">
 
             <img @click="openTab('https://github.com/treading0light')"
-             class="w-6 pointer-events-auto hover:cursor-pointer bg-white" 
+             class="w-6 lg:w-10 pointer-events-auto hover:cursor-pointer bg-white" 
              src="/images/github.png">
 
             <img @click="openTab('https://twitter.com/tony0green')" 
-            class="w-6 pointer-events-auto hover:cursor-pointer" 
+            class="w-6 lg:w-10 pointer-events-auto hover:cursor-pointer" 
             src="/images/twitter.png">
 
             <img @click="openTab('https://www.linkedin.com/in/tony-green-b661b489/')" 
-            class="w-6 pointer-events-auto hover:cursor-pointer" 
+            class="w-6 lg:w-10 pointer-events-auto hover:cursor-pointer" 
             src="/images/linkedin.png">
 
         </div>
 
         <div id="sideNav" class="fixed w-10 sm:w-20 min-h-screen flex flex-col justify-center items-center text-base-content whitespace-nowrap
         text-3xl gap-28
+        md:text-5xl md:gap-52
         
         ">
 
-            <h3 @click="scrollTo('stack')" class="-rotate-90 hover:cursor-pointer">Projects</h3>
+            <h3 @click="scrollTo('projects')" class="-rotate-90 hover:cursor-pointer">Projects</h3>
             <h3 @click="scrollTo('about')" class="-rotate-90 hover:cursor-pointer">About Me</h3>
         </div>
 
@@ -51,7 +52,7 @@
     }
 
     const scrollTo = (id) => {
-        const pos = document.getElementById(id).offsetTop - 150
+        const pos = document.getElementById(id).offsetTop - 75
         console.log(pos)
         window.scroll({
             top: pos,
