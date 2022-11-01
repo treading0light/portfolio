@@ -27,12 +27,12 @@
 	// 
 
 	const row1Words = [
-	'Web Developer',
-    'Database Architect',
-    'Cool Guy',
+    'Programmer',
     'Team Member',
     'Creative Mind',
     'Hard Worker',
+    'Web',
+    'Software',
     'Developer'
 	]
 

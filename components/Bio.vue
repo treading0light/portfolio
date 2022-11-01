@@ -1,18 +1,18 @@
 <template>
-	<div class="w-9/12 flex bg-base-300 rounded-lg border-4 border-primary items-center
+	<div class="w-9/12 lg:w-2/3 flex bg-base-300 rounded-lg border-4 border-primary items-center
 	flex-col p-5 gap-5
 	sm:flex-row sm:p-10">
 
 			<img class="mask mask-circle w-32 sm:self-start" src="/images/tony.jpg">
 
-			<div class="flex flex-col w-full md:w-2/3">
+			<div class="flex flex-col w-full">
 
 				<div class="w-full flex flex-row justify-between text-center">
-					<p v-for="obj in textOptions" @click="makeActive(obj.id)" :id="obj.id" class="about-tab p-2 rounded-t-lg hover:cursor-pointer">{{ obj.title }}</p>
+					<p v-for="obj in textOptions" @click="makeActive(obj.id)" :id="obj.id" class="about-tab p-2 rounded-t-lg text-base-content hover:cursor-pointer">{{ obj.title }}</p>
 				</div>
 
-				<div class="bg-base-100 p-2 flex flex-col gap-2">
-					<p class="lg:text-xl" v-for="line in text">{{ line }}</p>
+				<div class="bg-neutral p-2 flex flex-col gap-2">
+					<p class="lg:text-xl text-neutral-content" v-for="line in text">{{ line }}</p>
 				</div>
 				
 			</div>
@@ -70,12 +70,12 @@
 		let tabs = Array.from(document.querySelectorAll('.about-tab'))
 
 		for (let tab of tabs) {
-			tab.classList.remove('bg-base-100')
+			tab.classList.remove('bg-neutral', 'text-neutral-content')
 		}
 
 		// add background for active
 		const el = document.getElementById(id)
-		el.classList.add('bg-base-100')
+		el.classList.add('bg-neutral', 'text-neutral-content')
 
 		selectDialog(id)
 		
