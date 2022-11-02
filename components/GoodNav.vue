@@ -23,6 +23,7 @@
         ">    
             <h3 @click="scrollTo('about')" class="-rotate-90 hover:cursor-pointer">About Me</h3>
             <h3 @click="scrollTo('projects')" class="-rotate-90 hover:cursor-pointer">Projects</h3>
+            <h3 @click="scrollTo('certs')" class="-rotate-90 hover:cursor-pointer">Certs</h3>
         </div>
 
     </div>
