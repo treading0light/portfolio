@@ -22,7 +22,7 @@
 			<img class="w-10 sm:w-12 xl:w-20 absolute top-[50%] left-[30%] centerWidth opacity-50 hover:opacity-100"
 			 src="/images/certs/python-large.png" @click="openViewer('python-cert')">
 
-			<h3 class="text-3xl absolute bottom-10 left-[50%] centerWidth text-center rotate-1">Click one</h3>
+			<h3 class="text-3xl absolute bottom-10 left-[50%] centerWidth text-center">Click one</h3>
 		</div>
 
 		<Teleport to="#main" >
@@ -32,16 +32,23 @@
 </template>
 
 <script setup>
+	import jsUrl from '/images/certs/js-cert.png'
+	import cssUrl from '/images/certs/css-cert.png'
+	import htmlUrl from '/images/certs/html-cert.png'
+	import phpUrl from '/images/certs/php-cert.png'
+	import pythonUrl from '/images/certs/python-cert.png'
+
 	const cert = ref(null)
 	const certs = {
-		'js-cert': '/images/certs/js-cert.png',
-		'css-cert': '/images/certs/css-cert.png',
-		'html-cert': '/images/certs/html-cert.png',
-		'php-cert': '/images/certs/php-cert.png',
-		'python-cert': '/images/certs/python-cert.png'
+		'js-cert': jsUrl,
+		'css-cert': cssUrl,
+		'html-cert': htmlUrl,
+		'php-cert': phpUrl,
+		'python-cert': pythonUrl
 	}
 	const openViewer = (name) => {
-		cert.value = '/images/certs/' + name + '.png'
+		// cert.value = '/images/certs/' + name + '.png'
+		cert.value = certs[name]
 	}
 
 	const closeViewer = () => {
