@@ -49,7 +49,7 @@
 			id: "work-life",
 			title: "Work life",
 			bodyArray: [
-				"My name is Tony Green. I am a self taught developer with plenty of general work experience. Over my years in the work force I have aquired a classic work ethic, worked independently and with highly trained teams, and trained others to be effective and efficient.",
+				"I am a self taught developer with plenty of general work experience. Over my years in the work force I have aquired a classic work ethic, worked independently and with highly trained teams, and trained others to be effective and efficient.",
 				"I enjoy being challenged and learning new things."
 			]
 		},		
