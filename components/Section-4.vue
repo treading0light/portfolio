@@ -32,6 +32,7 @@
 </template>
 
 <script setup>
+	// preload the images, handled by vite
 	import jsUrl from '/images/certs/js-cert.png'
 	import cssUrl from '/images/certs/css-cert.png'
 	import htmlUrl from '/images/certs/html-cert.png'

@@ -1,5 +1,5 @@
 <template>
-	<div id="stack" class="w-2/3 h-96 relative mr-[10%]">
+	<div id="stack" class="w-2/3 h-96 h- relative mr-[10%]">
 
 		<div v-for="project in projects"
 		class="flip-card card text-center absolute p-1 sm:p-10 bg-base-200 border-4 border-primary h-96 w-10/12
