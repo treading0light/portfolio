@@ -1,15 +1,17 @@
 <template>
-	<div id="stack" class="w-2/3 h-96 h- relative mr-[10%]">
+	<div id="stack" class="w-2/3 h-96 relative mr-[10%]">
 
 		<div v-for="project in projects"
-		class="flip-card card text-center absolute p-1 sm:p-10 bg-base-200 border-4 border-primary h-96 w-10/12
-		sm:card-side sm:items-center">
+		class="flip-card card text-center absolute bg-base-200 border-4 border-primary h-[100%] w-10/12
+		p-1 sm:p-10 sm:card-side sm:items-center">
+
 			<div class="flex flex-col gap-3">
 				<h2 class="text-center bold text-lg lg:text-3xl">{{ project.name }}</h2>
 				<p class="text-sm lg:text-xl">{{ project.description }}</p>
 
-				<div v-if="project.link != '' " class="card-action justify-end">
-					<a class="btn btn-secondary " :href="project.link">Visit</a>
+				<div class="flex gap-2 self-center">
+					<a v-if="project.link != '' " class="btn btn-secondary p-3" :href="project.link">Visit</a>
+					<a v-if="project.codeLink != '' " class="btn btn-secondary p-3" :href="project.codeLink">Code</a>
 				</div>	
 
 			</div>

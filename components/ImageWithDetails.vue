@@ -8,10 +8,13 @@
 			md:text-xl
 			lg:text-2xl
 			xl:text-3xl">
+
 				<p class="font-bold">Stack:</p>
+
 				<ul class="list">
 					<li v-for="detail in details">{{ detail }}</li>
 				</ul>
+
 			</div>
 		</div>
 </template>
@@ -23,13 +26,12 @@
 		details: Array
 	})
 
+
 	const handleHover = (command) => {
 		if (command === 'show') {
 			detailBox.value.classList.remove('invisible')
-			console.log('mouseOn')
 		} else {
 			detailBox.value.classList.add('invisible')
-			console.log('mouseOff')
 		}	
 	}
 </script>

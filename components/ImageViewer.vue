@@ -1,16 +1,22 @@
 <template>
 	<div id="viewer" class="fixed flex justify-center items-center w-full h-screen">
+
 		<button @click="close()" class="btn btn-circle btn-secondary text-center absolute right-10 top-10">X</button>
+
 		<img class="w-[80%] lg:w-[60%]" :src="cert">
+		
 	</div>
 </template>
 
 <script setup>
+
+	// img url given by parent component
 	const props = defineProps({
 		cert: String
 	})
 	const emit = defineEmits(['close'])
 
+	// signals parent to close modal
 	const close = () => {
 		emit('close')
 	}

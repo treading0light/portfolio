@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div id="topNav" class="fixed top-5 w-full flex justify-center gap-10 sm:gap-40 pointer-events-none"
+        <div id="topNav" ref="top" class="fixed top-5 w-full flex justify-center gap-10 sm:gap-40 pointer-events-none"
         style="z-index: 15;">
 
             
@@ -16,7 +16,7 @@
 
         </div>
 
-        <div id="sideNav" class="fixed w-10 sm:w-20 min-h-screen flex flex-col justify-center items-center text-base-content whitespace-nowrap
+        <div id="sideNav" ref="side" class="fixed w-10 sm:w-20 min-h-screen flex flex-col justify-center items-center text-base-content whitespace-nowrap
         text-3xl gap-28
         md:text-5xl md:gap-52
         
@@ -39,11 +39,13 @@
 
     // scrollUp/scrollDown are called by parent component
 
+    // reveal nav elements
     const scrollUp = () => {
         top.value.classList.remove('-translate-y-52')
         side.value.classList.remove('-translate-x-52')
     }
 
+    // hide nav elements
     const scrollDown = () => {
         top.value.classList.add('-translate-y-52')
         side.value.classList.add('-translate-x-52')
@@ -51,13 +53,14 @@
 
     const scrollTo = (id) => {
         const pos = document.getElementById(id).offsetTop - 100
-        console.log(pos)
+
         window.scroll({
             top: pos,
             behavior: 'smooth'
         })
     }
 
+    // open link in new tab
     const openTab = (url) => {
         window.open(url, "_blank")
     }
@@ -67,14 +70,6 @@
         scrollDown,
         scrollUp
     })
-
-    onMounted(() => {
-        // save both nav elements to refs
-        
-        top.value = document.getElementById('topNav')
-        side.value = document.getElementById('sideNav')
-    })
-
 	
 </script>
 

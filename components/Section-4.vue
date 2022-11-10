@@ -47,8 +47,9 @@
 		'php-cert': phpUrl,
 		'python-cert': pythonUrl
 	}
+
+	// ImageViewer is rendered only when cert.value is filled
 	const openViewer = (name) => {
-		// cert.value = '/images/certs/' + name + '.png'
 		cert.value = certs[name]
 	}
 
