@@ -17,8 +17,8 @@
         </div>
 
         <div id="sideNav" ref="side" class="fixed w-10 sm:w-20 min-h-screen flex flex-col justify-center items-center text-base-content whitespace-nowrap
-        text-3xl gap-28
-        md:text-5xl md:gap-52
+        text-2xl gap-28
+        md:text-4xl md:gap-44
         
         ">    
             <h3 @click="scrollTo('about')" class="-rotate-90 hover:cursor-pointer">About Me</h3>
