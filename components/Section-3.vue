@@ -26,9 +26,10 @@
 	const projects = [
     {
       name: 'Healthy Fleet',
-      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule. Demo available.",
+      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule. Demo available. PROJECT CURRENTLY DOWN, MIGRATING HOSTS 2/3/23",
       img: "/images/hf-logo-edit.png",
-      link: "https://www.healthyfleet.org",
+      // link: "https://www.healthyfleet.org",
+      link: '',
       codeLink: "https://github.com/treading0light/healthy-fleet",
       details: [
         "PHP/Laravel",
