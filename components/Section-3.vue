@@ -26,7 +26,7 @@
 	const projects = [
     {
       name: 'Healthy Fleet',
-      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule. Demo available. PROJECT CURRENTLY DOWN, MIGRATING HOSTS 2/3/23",
+      description: "An app designed to intelligently track a fleet's vehicle maintenance schedule. Demo available.",
       img: "/images/hf-logo-edit.png",
       // link: "https://www.healthyfleet.org",
       link: '',
