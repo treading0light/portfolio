@@ -5,6 +5,8 @@
       <Meta name="og:image:type" content="image/PNG" />
       <Meta name="og:image:width" content="200" />
       <Meta name="og:image:height" content="200" />
+
+      <title>Tony Green</title>
     </Head>
 
     <GoodNav ref="nav" />
@@ -19,6 +21,10 @@
   // nav = template ref
   // scrollTop can pass current window scrollTop
   // to child components
+
+  useHead({
+    title: 'Tony Green',
+  })
   
   const nav = ref(null)
   const scrollTop = ref(0)
